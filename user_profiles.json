@@ -1,0 +1,62 @@
+{
+  "conservative_beginner": {
+    "profile": "conservative_beginner",
+    "risk_tolerance": "low",
+    "investment_timeline": "long_term",
+    "monthly_budget": 200,
+    "current_portfolio": {
+      "btc": { "amount": 0.01, "cost_basis": 45000 },
+      "eth": { "amount": 0.5, "cost_basis": 2800 },
+      "cash": 1000
+    },
+    "goals": ["retirement", "learning"]
+  },
+  "aggressive_young": {
+    "profile": "aggressive_young",
+    "risk_tolerance": "high", 
+    "investment_timeline": "medium_term",
+    "monthly_budget": 1000,
+    "current_portfolio": {
+      "btc": { "amount": 0.15, "cost_basis": 38000 },
+      "eth": { "amount": 3.2, "cost_basis": 2200 },
+      "cash": 500
+    },
+    "goals": ["growth", "wealth_building"]
+  },
+  "defi_enthusiast": {
+    "profile": "defi_enthusiast",
+    "risk_tolerance": "high",
+    "investment_timeline": "short_term", 
+    "monthly_budget": 1500,
+    "current_portfolio": {
+      "btc": { "amount": 0.05, "cost_basis": 42000 },
+      "eth": { "amount": 8.0, "cost_basis": 1800 },
+      "cash": 2000
+    },
+    "goals": ["defi_yield", "innovation_exposure"]
+  },
+  "dca_steady": {
+    "profile": "dca_steady",
+    "risk_tolerance": "medium",
+    "investment_timeline": "long_term",
+    "monthly_budget": 500,
+    "current_portfolio": {
+      "btc": { "amount": 0.25, "cost_basis": 35000 },
+      "eth": { "amount": 2.1, "cost_basis": 2500 },
+      "cash": 300
+    },
+    "goals": ["steady_growth", "inflation_hedge"]
+  },
+  "recovery_investor": {
+    "profile": "recovery_investor",
+    "risk_tolerance": "medium",
+    "investment_timeline": "long_term",
+    "monthly_budget": 300,
+    "current_portfolio": {
+      "btc": { "amount": 0.08, "cost_basis": 65000 },
+      "eth": { "amount": 1.5, "cost_basis": 4200 },
+      "cash": 100
+    },
+    "goals": ["recovery", "break_even"]
+  }
+}
