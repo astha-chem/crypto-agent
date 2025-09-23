@@ -36,7 +36,7 @@ Demonstrate each agent's ability to plan its analysis approach. Show clear reaso
 - job scope: Analyzes price data, technical indicators, volume patterns, and market trends
 - reports to: Intelligence fusion agent
 - direct reports: None
-- tools: CoinGecko API
+- tools: Taapi API
 - testing strategy: Full backtesting with historical OHLC data, validate against known technical patterns
 
 6. On-Chain Analysis Agent
@@ -62,13 +62,17 @@ Demonstrate each agent's ability to plan its analysis approach. Show clear reaso
 
 ## Tools 
 Focus on ETH/BTC
-  1. CoinGecko API (price/market data)
-  2. Serper API (search/news)
-  3. DeFiLlama API (DeFi analysis)
-  4. Fear & Greed Index (sentiment)
-  5. Reddit API (social sentiment)
-  6. Blockchair API (Bitcoin on-chain)
-  7. Etherscan API (Ethereum on-chain)
+  - CoinGecko API (raw price/market data)
+  30 calls per min. 10000 calls per month free with the demo api. 
+  Attribution required, as explained here - https://brand.coingecko.com/resources/attribution-guide
+
+  - Taapi API (technical indicators)
+  - Serper API (search/news)
+  - DeFiLlama API (DeFi analysis)
+  - Fear & Greed Index (sentiment)
+  - Reddit API (social sentiment)
+  - Blockchair API (Bitcoin on-chain)
+  - Etherscan API (Ethereum on-chain)
 
 Consider MCP servers, function calling, or custom tool implementations
 Show effective orchestration of multiple tools. 

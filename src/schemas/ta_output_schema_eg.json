@@ -1,0 +1,222 @@
+{
+  "report_metadata": {
+    "timestamp": "2025-01-15T14:30:00Z",
+    "agent": "technical_analysis",
+    "data_sources": ["taapi.io", "coingecko"],
+    "market_regime": "bull_market_moderate_volatility"
+  },
+
+  "threshold_calibration": {
+    "method": "90_day_percentile_with_regime_adjustment",
+    "last_update": "2025-01-15T06:00:00Z",
+    "overall_confidence": 0.82
+  },
+
+  "assets": {
+    "BTC": {
+      "current_price": 43250,
+      "overall_signal": {
+        "direction": "bullish",
+        "strength": "moderate",
+        "confidence": 75,
+        "interpretation": "Multiple indicators suggest moderate bullish momentum with good risk/reward setup"
+      },
+
+      "indicators": {
+        "rsi": {
+          "value": 32,
+          "dynamic_threshold": {
+            "oversold": 35,
+            "overbought": 75,
+            "confidence": 0.85
+          },
+          "signal": "moderately_oversold",
+          "interpretation": "RSI 32 – moderately oversold in current bull market (threshold: 35); potential bounce expected",
+          "time_horizon": "short_term",
+          "actionable": true
+        },
+
+        "sma_ema": {
+          "ema_14": 42800,
+          "sma_50": 41500,
+          "price_vs_ema14": "above",
+          "price_vs_sma50": "above",
+          "signal": "bullish_trend",
+          "interpretation": "Price above EMA(14) & SMA(50) – confirms short-to-medium term uptrend",
+          "time_horizon": "short_to_medium_term",
+          "actionable": true
+        },
+
+        "macd": {
+          "signal": "bullish_crossover_recent",
+          "histogram_trend": "rising",
+          "strength": "moderate",
+          "interpretation": "MACD bullish crossover with rising histogram – momentum building",
+          "time_horizon": "medium_term",
+          "actionable": true
+        },
+
+        "bollinger_bands": {
+          "position": "near_lower_band",
+          "band_width": "compressed",
+          "dynamic_settings": {
+            "period": 20,
+            "std_dev": 2.1
+          },
+          "signal": "breakout_preparation",
+          "interpretation": "Price near lower band with compression – prepare for volatility breakout",
+          "time_horizon": "short_term",
+          "actionable": true
+        }
+      },
+
+      "key_levels": {
+        "support": [42000, 40600],
+        "resistance": [45800, 47500],
+        "stop_loss_suggestion": 41200,
+        "take_profit_targets": [45800, 47500]
+      },
+
+      "time_horizon_summary": {
+        "short_term": {
+          "outlook": "bullish",
+          "confidence": 72,
+          "key_signals": ["rsi_oversold", "bollinger_compression"],
+          "interpretation": "RSI oversold + band compression suggest 3-5% bounce likely in 1-7 days"
+        },
+        "medium_term": {
+          "outlook": "bullish",
+          "confidence": 78,
+          "key_signals": ["trend_continuation", "macd_momentum"],
+          "interpretation": "Strong trend structure + MACD momentum support 8-12% move over 1-4 weeks"
+        },
+        "long_term": {
+          "outlook": "neutral",
+          "confidence": 60,
+          "key_signals": ["market_structure"],
+          "interpretation": "Above key moving averages but approaching major resistance zones"
+        }
+      },
+
+      "recommended_action": {
+        "primary": "buy",
+        "entry_range": [42500, 43000],
+        "conviction": "moderate",
+        "position_size": "2-3%",
+        "risk_reward": 2.8,
+        "rationale": "Multiple oversold indicators in established uptrend with clear risk management levels"
+      }
+    },
+
+    "ETH": {
+      "current_price": 2650,
+      "overall_signal": {
+        "direction": "bullish",
+        "strength": "strong",
+        "confidence": 82,
+        "interpretation": "Strong technical setup with multiple confirming indicators"
+      },
+
+      "indicators": {
+        "rsi": {
+          "value": 65,
+          "dynamic_threshold": {
+            "oversold": 32,
+            "overbought": 78,
+            "confidence": 0.80
+          },
+          "signal": "bullish_momentum",
+          "interpretation": "RSI 65 – healthy bullish momentum, room to run before overbought (threshold: 78)",
+          "time_horizon": "short_to_medium_term",
+          "actionable": true
+        },
+
+        "sma_ema": {
+          "signal": "strong_bullish_alignment",
+          "interpretation": "All major moving averages aligned bullishly with strong momentum",
+          "time_horizon": "medium_term",
+          "actionable": true
+        },
+
+        "macd": {
+          "signal": "strong_bullish_momentum",
+          "interpretation": "MACD showing accelerating bullish momentum",
+          "time_horizon": "medium_term",
+          "actionable": true
+        },
+
+        "bollinger_bands": {
+          "signal": "riding_upper_band",
+          "interpretation": "Price riding upper band – strong trend but monitor for exhaustion",
+          "time_horizon": "short_term",
+          "actionable": false
+        }
+      },
+
+      "time_horizon_summary": {
+        "short_term": {
+          "outlook": "bullish",
+          "confidence": 80,
+          "interpretation": "Strong momentum continues, 5-8% move possible in next week"
+        },
+        "medium_term": {
+          "outlook": "bullish",
+          "confidence": 85,
+          "interpretation": "All systems go – 15-20% upside over 2-4 weeks if momentum sustains"
+        }
+      },
+
+      "recommended_action": {
+        "primary": "buy_on_pullback",
+        "entry_range": [2580, 2620],
+        "conviction": "high",
+        "position_size": "3-4%",
+        "risk_reward": 2.4,
+        "rationale": "Wait for small pullback in strong uptrend for better entry"
+      }
+    }
+  },
+
+  "market_context": {
+    "regime": "bull_market_moderate_volatility",
+    "btc_eth_correlation": 0.85,
+    "volume_confirmation": true,
+    "overall_market_sentiment": "constructive"
+  },
+
+  "alerts": [
+    {
+      "type": "breakout_watch",
+      "asset": "BTC",
+      "message": "Bollinger Band compression – prepare for 5-7% move in either direction",
+      "priority": "medium",
+      "trigger_levels": [44000, 41500]
+    },
+    {
+      "type": "momentum_continuation",
+      "asset": "ETH",
+      "message": "Strong momentum – watch for pullback to 2580-2620 for optimal entry",
+      "priority": "high"
+    }
+  ],
+
+  "for_other_agents": {
+    "intelligence_fusion": {
+      "technical_conviction": 0.77,
+      "regime_confidence": 0.82,
+      "signal_quality": "high",
+      "conflicting_signals": false
+    },
+    "action_recommendation": {
+      "primary_opportunities": ["BTC_oversold_bounce", "ETH_momentum_continuation"],
+      "risk_level": "moderate",
+      "portfolio_allocation_suggestion": "5-7% combined",
+      "time_sensitivity": "medium"
+    },
+    "human_interface": {
+      "key_takeaway": "Both assets showing bullish setups with BTC offering better risk/reward on oversold bounce",
+      "main_risks": "General market volatility, resistance at key levels",
+      "next_review": "4 hours or on 3% price move"
+    }
+  }
+}
