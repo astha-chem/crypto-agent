@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crypto-agent"
+version = "1.0.0"
+description = "Multi-Agent Crypto Investment Analyst"
+authors = [{name = "Crypto Agent Team"}]
+readme = "README.md"
+requires-python = ">=3.9"
+
+dependencies = [
+    # LangChain ecosystem
+    "langchain[openai]",  # Includes OpenAI integration
+    "langchain-anthropic",  # For Claude integration
+    "langchain-community",
+    "langgraph",  # For multi-agent workflows
+    "langsmith",  # For tracing and monitoring
+
+    # Environment and config
+    "python-dotenv",
+
+    # Data analysis (M1-optimized via conda-forge)
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "scipy"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]

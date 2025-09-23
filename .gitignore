@@ -20,3 +20,6 @@ environment-lock.yml
 
 # Logs
 *.log
+
+# pdf
+*.pdf
