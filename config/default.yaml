@@ -32,7 +32,7 @@ agents:
 
 apis:
   rate_limits:
-    coingecko: (10, 'min')  # requests per minute
+    coingecko: (30, 'min')  # requests per minute
     etherscan: (5, 's')   # requests per second
     serper: ('100', 'hr')    # requests per hour
     reddit: ('60', 'min')     # requests per minute

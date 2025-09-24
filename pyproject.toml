@@ -17,6 +17,15 @@ dependencies = [
     "langchain-community",
     "langgraph",  # For multi-agent workflows
     "langsmith",  # For tracing and monitoring
+    "langchain-mcp-adapters",  # MCP integration
+    "mcp",  # Model Context Protocol
+    "nest_asyncio", 
+    "playwright",
+    "lxml",
+    "beautifulsoup4"
+
+    # API clients
+    "requests",
 
     # Environment and config
     "python-dotenv",

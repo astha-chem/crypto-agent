@@ -62,15 +62,15 @@ Demonstrate each agent's ability to plan its analysis approach. Show clear reaso
 
 ## Tools 
 Focus on ETH/BTC
-  - CoinGecko API (raw price/market data)
-  30 calls per min. 10000 calls per month free with the demo api. 
-  Attribution required, as explained here - https://brand.coingecko.com/resources/attribution-guide
-
-  - Taapi API (technical indicators)
+  
+  - Taapi API (technical indicators and price)
+    Done, through API
   - Serper API (search/news)
-  - DeFiLlama API (DeFi analysis)
+    Done, Langchain tool wrapper
   - Fear & Greed Index (sentiment)
+    Done
   - Reddit API (social sentiment)
+  - DeFiLlama API (DeFi analysis)
   - Blockchair API (Bitcoin on-chain)
   - Etherscan API (Ethereum on-chain)
 
@@ -183,17 +183,18 @@ Workflow for environment :
 conda is in `~/miniconda3/bin/conda`
 
 Environment Commands:
-- Create env: `~/miniconda3/bin/conda env create -f environment.yml`
+- Setup env: `./setup_env.sh` (creates env + installs playwright browsers)
+- Or manual: `~/miniconda3/bin/conda env create -f environment.yml && source ~/miniconda3/bin/activate crypto-agent && playwright install`
 - Activate: `source ~/miniconda3/bin/activate crypto-agent`
-- Test tools: `python src/tools/serper_tool.py`
+- Test tools: `python -m src/tools/serper_tool.py`
 - Export lock: `conda env export > environment-lock.yml`
 
   1. Add code → Update pyproject.toml and readme.md → Test → Export lock file
   2. This way we get actual working versions instead of guessing
 
-  ### Implementation plan day 1
+  ### Implementation plan
   
-  We'll start with the analyst agents on day 1. 
+  We'll start with the analyst agents. 
     Implementation Structure:
 
   - LangChain LLM (OpenAI/Claude) with tool binding
@@ -203,7 +204,7 @@ Environment Commands:
 
   Day 1 Agents:
 
-  1. Technical Analysis Agent + CoinGecko tool
+  1. Technical Analysis Agent
   2. On-Chain Analysis Agent + Blockchair/Etherscan tools
   3. DeFi Fundamentals Agent + DeFiLlama tool
   4. Sentiment Fusion Agent + Serper/Reddit/Fear&Greed tools
