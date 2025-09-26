@@ -23,30 +23,7 @@
     },
     "goals": ["growth", "wealth_building"]
   },
-  "defi_enthusiast": {
-    "profile": "defi_enthusiast",
-    "risk_tolerance": "high",
-    "investment_timeline": "short_term", 
-    "monthly_budget": 1500,
-    "current_portfolio": {
-      "btc": { "amount": 0.05, "cost_basis": 42000 },
-      "eth": { "amount": 8.0, "cost_basis": 1800 },
-      "cash": 2000
-    },
-    "goals": ["defi_yield", "innovation_exposure"]
-  },
-  "dca_steady": {
-    "profile": "dca_steady",
-    "risk_tolerance": "medium",
-    "investment_timeline": "long_term",
-    "monthly_budget": 500,
-    "current_portfolio": {
-      "btc": { "amount": 0.25, "cost_basis": 35000 },
-      "eth": { "amount": 2.1, "cost_basis": 2500 },
-      "cash": 300
-    },
-    "goals": ["steady_growth", "inflation_hedge"]
-  },
+  
   "recovery_investor": {
     "profile": "recovery_investor",
     "risk_tolerance": "medium",

@@ -472,6 +472,9 @@ class TaapiClient:
             parsed_response = {}
 
             if isinstance(bulk_response, dict) and 'data' in bulk_response:
+                parsed_response["symbol"] = symbol
+                parsed_response["interval"] = interval
+                parsed_response["exchange"] = exchange
                 for item in bulk_response['data']:
                     if isinstance(item, dict):
                         indicator_name = item.get('indicator', '')

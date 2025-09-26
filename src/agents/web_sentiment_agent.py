@@ -6,7 +6,7 @@ from langgraph.prebuilt import create_react_agent
 from dotenv import load_dotenv
 from langchain_community.utilities import GoogleSerperAPIWrapper
 from src.tools.fear_greed_tool import get_fear_greed_index
-from src.tools.playwright_tool import WebScrapingTool
+
 import os 
 from pydantic import BaseModel, Field
 from langchain_core.tools import tool
@@ -88,7 +88,6 @@ Always provide:
 Use at least 5 searches to build a comprehensive view before providing your final analysis."""
 
 web_sentiment_default_user_input = "Analyze current Bitcoin sentiment. Check fear & greed index, search for recent BTC news, and specifically search for social sentiment as well. You can make upto 5 searches. Provide a comprehensive report based on your searches."
-# tools = fgi_tools + news_search_tools + web_search_tools + navigate_web_page_tools
 
 web_sentiment_tools = [get_fear_greed_index, web_search_tool]
 
@@ -115,8 +114,6 @@ def run_new_web_sentiment_agent_node(thread_id: str, user_input: str = None, mod
 if __name__ == "__main__":
     response, thread_id = run_new_web_sentiment_agent_node(thread_id="test_web_sentiment_1", user_input="Is this a good time to buy Bitcoin? ")
     print("Final message: ", response['messages'][-1])
-    # tool_calls = [msg for msg in response['messages'] if isinstance(msg, ToolMessage)]
-    # for tool_call in tool_calls:
-    #     print("Tool call: ", tool_call)
+
     
 
