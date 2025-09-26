@@ -15,9 +15,12 @@ dependencies = [
     "langchain[openai]",  # Includes OpenAI integration
     "langchain-anthropic",  # For Claude integration
     "langchain-community",
+    "langchain-groq",
     "langgraph",  # For multi-agent workflows
     "langsmith",  # For tracing and monitoring
-    "langchain-mcp-adapters",  # MCP integration
+    "langchain-mcp-adapters",  # MCP integration, 
+    "langgraph-supervisor", # supervisor multi-agent system
+    "langgraph-swarm",
     "mcp",  # Model Context Protocol
     "nest_asyncio", 
     "playwright",
@@ -29,6 +32,7 @@ dependencies = [
 
     # Environment and config
     "python-dotenv",
+
 
     # Data analysis (M1-optimized via conda-forge)
     "numpy",

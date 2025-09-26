@@ -10,9 +10,8 @@ from src.tools.playwright_tool import WebScrapingTool
 import os 
 from pydantic import BaseModel, Field
 from langchain_core.tools import tool
+from langchain_core.messages import AIMessage, HumanMessage, SystemMessage, ToolMessage
 load_dotenv()
-
-fgi_tools = [get_fear_greed_index]
 
 
 @tool("web_search_tool")
@@ -59,21 +58,7 @@ def web_search_tool(search_query: str, news_only: bool = False, limit_last_day: 
         return search_tool.run(search_query)
 
 
-
-# news_search_tools = [daily_news_search.results, weekly_news_search.results]
-# web_search_tools = [daily_web_search.run, weekly_web_search.run]
-# navigate_web_page_tools = [WebScrapingTool.run]
-
-
-# tools = fgi_tools + news_search_tools + web_search_tools + navigate_web_page_tools
-tools = fgi_tools + [web_search_tool]
-
-def main():
-    load_dotenv()
-
-    # System prompt for sentiment analysis
-    system_prompt = """You are a professional cryptocurrency sentiment analyst. Your job is to analyze market sentiment from various web sources and provide actionable insights.
-
+web_sentiment_system_prompt = """You are a professional cryptocurrency sentiment analyst. Your job is to analyze market sentiment from various web sources and provide actionable insights.
 When analyzing sentiment data, consider:
 1. Fear & Greed Index levels and interpretation
 2. News sentiment (positive/negative headlines, regulatory news)
@@ -102,26 +87,36 @@ Always provide:
 
 Use at least 5 searches to build a comprehensive view before providing your final analysis."""
 
+web_sentiment_default_user_input = "Analyze current Bitcoin sentiment. Check fear & greed index, search for recent BTC news, and specifically search for social sentiment as well. You can make upto 5 searches. Provide a comprehensive report based on your searches."
+# tools = fgi_tools + news_search_tools + web_search_tools + navigate_web_page_tools
+
+web_sentiment_tools = [get_fear_greed_index, web_search_tool]
+
+def run_new_web_sentiment_agent_node(thread_id: str, user_input: str = None, model: str = "openai:gpt-4o-mini", 
+                                     messages=None): 
+    web_sentiment_tools = [get_fear_greed_index, web_search_tool]
     # Initialize chat model
     model = init_chat_model("openai:gpt-4o-mini")
-
     # Create the agent
-    agent_executor = create_react_agent(model, tools, prompt=system_prompt)
-
+    agent_executor = create_react_agent(model, tools, prompt=web_sentiment_system_prompt)
     # Test question
-    config = {"configurable": {"thread_id": "sentiment_test1"}}
-
+    config = {"configurable": {"thread_id": thread_id}}
     input_message = {
         "role": "user",
-        "content": "Analyze current Bitcoin sentiment. Check fear & greed index, search for recent BTC news, and specifically search for social sentiment as well. You can make upto 5 searches. Provide a comprehensive report based on your searches."
+        "content": web_sentiment_default_user_input if user_input is None else user_input
     }
-
     response = agent_executor.invoke({"messages": [input_message]}, config)
-
-    # Print the response
     for message in response["messages"]:
         message.pretty_print()
+    return response, thread_id
+
+
 
 if __name__ == "__main__":
-    main()
+    response, thread_id = run_new_web_sentiment_agent_node(thread_id="test_web_sentiment_1", user_input="Is this a good time to buy Bitcoin? ")
+    print("Final message: ", response['messages'][-1])
+    # tool_calls = [msg for msg in response['messages'] if isinstance(msg, ToolMessage)]
+    # for tool_call in tool_calls:
+    #     print("Tool call: ", tool_call)
+    
 
