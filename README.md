@@ -121,8 +121,6 @@ User-profile is set in user_profiles.json - this is a proxy for current user-hol
 4. Provides final buy/sell/hold recommendation with confidence levels
 5. For multi-turn conversations, user can ask follow-up questions. 
 
-
-
 ### Specialized Agents
 - **Technical Analysis Agent** - Analyzes price data, technical indicators, volume patterns using TaaPI API
 - **Web Sentiment Agent** - Analyzes market sentiment from news, social media, and whale activity using Serper API
